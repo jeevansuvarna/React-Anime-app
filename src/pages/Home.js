@@ -9,6 +9,7 @@ import { CardActionArea } from '@mui/material';
 import { searchContext } from '../context/search';
 import Recommand from '../components/Recommend';
 import { Link } from 'react-router-dom';
+import { getTopAnimes } from '../Api/apiService';
 
 function ActionAreaCard(data) {
 
@@ -68,17 +69,16 @@ function FormRow(animeData) {
 export const Home = () => {
 
     const search = useContext(searchContext);
+    let content = null;
     useEffect(() => {
-        search.topAnimes().then((response) => {
+        getTopAnimes().then((response) => {
             search.setData(response.data)
-
         })
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return (
-        <div style={{ marginTop: 25 }} >
+    if (search.animeData) {
+        content = <div style={{ marginTop: 25 }} >
             <Recommand />
             <Box sx={{ flexGrow: 5, marginLeft: 28, width: "82%", flex: "right" }}>
                 <Grid container spacing={2}>
@@ -88,5 +88,10 @@ export const Home = () => {
                 </Grid>
             </Box>
         </div>
+    }
+    return (
+        <>
+            {content}
+        </>
     );
 }

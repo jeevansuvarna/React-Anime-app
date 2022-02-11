@@ -67,6 +67,7 @@ export default function MainNavigation() {
                         {/* <MenuIcon /> */}
                     </IconButton>
                     <Typography
+                        style={{ color: "white" }}
                         variant="h6"
                         noWrap
                         component="div"
