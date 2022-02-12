@@ -10,8 +10,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 export const Youtube = (props) => {
 
     return (
-        <div style={{ paddingTop: 20, paddingBottom: 10 }}>
-            <center><Accordion style={{ width: "85%", backgroundColor: "#21325E" }} >
+        <div style={{ marginTop: 20 }} >
+            <center><Accordion style={{ width: "95%", backgroundColor: "#21325E" }} >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -26,7 +26,7 @@ export const Youtube = (props) => {
                 </AccordionDetails>
             </Accordion></center><br></br>
 
-            <center><Accordion style={{ width: "85%", backgroundColor: "#21325E" }} >
+            <center><Accordion style={{ width: "95%", backgroundColor: "#21325E" }} >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"

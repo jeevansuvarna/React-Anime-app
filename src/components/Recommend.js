@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { getPopularAnimes } from '../Api/apiService';
-
+import "../css/Recommend.css"
 export default function Recommand() {
 
     const [popular, setPopular] = useState([])
@@ -19,11 +19,11 @@ export default function Recommand() {
     }, [])
 
     return (
-        <div style={{ flexDirection: "column", display: "flex", width: 100, float: "left" }}>
-            <Card style={{ width: 200, height: "auto", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5 }}>
+        <div style={{ flexDirection: "column", display: "flex", float: "left", left: 0 }}>
+            <Card style={{ width: "auto", height: "auto", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5 }}>
                 <CardContent>
-                    <Typography sx={{ fontSize: 12, fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
-                        <span style={{ fontSize: 18, backgroundColor: "#1C7947", padding: 13, borderRadius: 5, paddingRight: 16 }}>Popular Animes</span><br></br><br></br>
+                    <Typography className="TopList" sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
+                        <span clasName="TopTitle" style={{ padding: 13, borderRadius: 5 }}>Popular Animes</span><br></br><br></br>
                         {
                             popular.map(function (item, i) {
                                 return (<>
@@ -36,10 +36,10 @@ export default function Recommand() {
                 </CardContent>
             </Card ><br></br>
 
-            <Card style={{ width: 200, height: "auto", float: "left", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5 }}>
+            <Card style={{ width: "auto", height: "auto", float: "left", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5 }}>
                 <CardContent>
-                    <Typography sx={{ fontSize: 12, fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
-                        <span style={{ fontSize: 18, backgroundColor: "#1C7947", padding: 13, borderRadius: 5, paddingRight: 16 }}>Popular Animes</span><br></br><br></br>
+                    <Typography className="TopList" sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
+                        <center><span clasName="TopTitle" style={{ padding: 13, borderRadius: 5 }}>Popular Animes</span></center><br></br><br></br>
                         {
                             popular.map(function (item, i) {
                                 return (<>

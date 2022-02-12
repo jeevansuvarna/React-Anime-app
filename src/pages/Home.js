@@ -53,7 +53,7 @@ function FormRow(animeData) {
             {
                 search.animeData.map(function (item, i) {
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={item.mal_id}>
                             <Grid item sx={{ width: 298 }}  >
                                 <ActionAreaCard props={item} />
                             </Grid>
@@ -78,9 +78,9 @@ export const Home = () => {
     }, [])
 
     if (search.animeData) {
-        content = <div style={{ marginTop: 25 }} >
+        content = <div style={{ marginTop: 100, display: "flex", flexDirection: "row" }} >
             <Recommand />
-            <Box sx={{ flexGrow: 5, marginLeft: 28, width: "82%", flex: "right" }}>
+            <Box sx={{ float: "left", marginLeft: 1, width: "100%" }}>
                 <Grid container spacing={2}>
                     <Grid container item spacing={3} >
                         <FormRow />

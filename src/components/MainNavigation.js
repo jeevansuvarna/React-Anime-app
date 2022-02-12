@@ -53,7 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function MainNavigation() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" style={{
+            <AppBar position="fixed" style={{
                 backgroundColor: "#21325E"
             }} >
                 <Toolbar>
