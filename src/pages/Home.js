@@ -1,70 +1,12 @@
 import React, { useEffect, useContext } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import { searchContext } from '../context/search';
 import Recommand from '../components/Recommend';
-import { Link } from 'react-router-dom';
 import { getTopAnimes } from '../Api/apiService';
+import AnimeList from '../components/AnimeList';
 
-function ActionAreaCard(data) {
 
-    return (
-
-        < Card sx={{ maxWidth: 300 }
-        } style={{ backgroundColor: "#21325E" }}>
-            <CardActionArea>
-                <Link
-                    to={{
-                        pathname: `/result/${data.props.mal_id}`,
-                        state: { from: 'occupation' }
-                    }}
-                >
-                    <CardMedia
-                        component="img"
-                        height="280"
-                        image={data.props.images.jpg.large_image_url}
-                        alt="green iguana"
-                    /> </Link>
-                <CardContent>
-                    <Typography gutterBottom variant="h8" component="div" color="white">
-                        {data.props.title_english || data.props.title}
-                    </Typography>
-                    <Typography variant="body2" color="white">
-                        <span>Episodes: </span>{data.props.episodes || "airing"}<br></br><br></br>
-                        <span>Status: </span>{data.props.status}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card >
-
-    )
-}
-
-function FormRow(animeData) {
-    const search = useContext(searchContext)
-
-    return (
-        <>
-            {
-                search.animeData.map(function (item, i) {
-                    return (
-                        <React.Fragment key={item.mal_id}>
-                            <Grid item sx={{ width: 298 }}  >
-                                <ActionAreaCard props={item} />
-                            </Grid>
-                        </React.Fragment>
-                    );
-                })
-            }
-        </>
-    );
-
-}
 
 export const Home = () => {
 
@@ -83,7 +25,7 @@ export const Home = () => {
             <Box sx={{ float: "left", marginLeft: 1, width: "100%" }}>
                 <Grid container spacing={2}>
                     <Grid container item spacing={3} >
-                        <FormRow />
+                        <AnimeList props={search.animeData} />
                     </Grid>
                 </Grid>
             </Box>

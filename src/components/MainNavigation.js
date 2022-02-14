@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { getAnimeByName } from '../Api/apiService';
+import { searchContext } from '../context/search';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -50,7 +53,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+
 export default function MainNavigation() {
+    const [input, setInput] = useState('');
+    const history = useNavigate();
+    const search = useContext(searchContext);
+
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            getAnimeByName(input).then((data) => {
+                console.log(data)
+                search.setSearch(data.results)
+                localStorage.setItem('myData', JSON.stringify(data.results));
+                setInput('');
+                history('/results');
+            });
+
+        }
+    };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" style={{
@@ -81,7 +103,10 @@ export default function MainNavigation() {
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search…"
+                            value={input}
+                            onChange={(event) => setInput(event.target.value)}
                             inputProps={{ 'aria-label': 'search' }}
+                            onKeyDown={handleSearch}
                         />
                     </Search>
                 </Toolbar>

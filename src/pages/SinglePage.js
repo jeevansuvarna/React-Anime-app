@@ -26,10 +26,10 @@ export const SinglePage = (props) => {
             genres = genres + " " + data.name;
         })
 
-        content = <div style={{ display: "flex", flexDirection: "row", marginTop: 100, width: "100%" }}>
+        content = <div style={{ marginTop: 100, display: "flex", flexDirection: "row" }} >
 
             <Recommand />
-            <div style={{ display: "flex", flexDirection: "column", width: "90%" }}>
+            <div style={{ display: "flex", flexDirection: "column", width: "90%", height: "100%" }}>
                 <div style={{ display: "flex", flexDirection: "row", marginLeft: 30, maxHeight: "35%" }}>
                     <Card style={{ width: "25%", height: "100%", display: "inline-block" }}>
                         <CardMedia
@@ -41,7 +41,7 @@ export const SinglePage = (props) => {
                             alt="green iguana"
                         />
                     </Card>
-                    <Card style={{ backgroundColor: "#21325E", display: "inline-block", borderRadius: 5, float: "right", marginLeft: 20, width: "50%", height: "auto" }}>
+                    <Card style={{ backgroundColor: "#21325E", display: "inline-block", borderRadius: 5, float: "right", marginLeft: 20, width: "50%", height: "100%" }}>
                         <CardContent>
                             <Typography sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
                                 <center style={{ backgroundColor: "#519259", paddingTop: 20, borderRadius: 5 }}> <span className="title" style={{ backgroundColor: "#519259", }}>{anime.title_english}</span><br></br>

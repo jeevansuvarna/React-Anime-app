@@ -24,5 +24,11 @@ const getAnimeById = async (id) => {
     );
     return await res.json();
 }
+const getRecentAnime = async () => {
+    const res = await fetch(
+        `https://api.jikan.moe/v4/watch/episodes`
+    );
+    return await res.json();
+}
 
-export { getAnimeByName, getTopAnimes, getPopularAnimes, getAnimeById }
+export { getAnimeByName, getTopAnimes, getPopularAnimes, getAnimeById, getRecentAnime }
