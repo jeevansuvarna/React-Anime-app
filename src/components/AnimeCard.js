@@ -9,21 +9,6 @@ import { CardActionArea } from '@mui/material';
 
 const AnimeCard = (props) => {
 
-    console.log(props.props)
-    // const history = Navigate();
-
-    // const search = useContext(SearchContext);
-
-    // const onClickHandler = (event) => {
-    // event.preventDefault();
-    // fetch(`https://api.jikan.moe/v3/anime/${props.props.mal_id}`)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         search.setSingle(data);
-    //         localStorage.setItem('singleData', JSON.stringify(data));
-    //         history('/single-view');
-    //     });
-    // };
 
 
     const _title =
@@ -43,33 +28,35 @@ const AnimeCard = (props) => {
 
 
     return (
-        < Card sx={{ maxWidth: 300 }
-        } style={{ backgroundColor: "#21325E" }}>
-            <CardActionArea>
-                <Link
-                    to={{
-                        pathname: `/result/${props.props.mal_id}`,
-                        state: { from: 'occupation' }
-                    }}
-                >
+        <Link
+            to={{
+                pathname: `/result/${props.props.mal_id}`,
+                state: { from: 'occupation' }
+            }}
+            style={{ color: "white", textDecoration: "white" }}
+        >
+            < Card sx={{ maxWidth: 300 }
+            } style={{ backgroundColor: "#21325E" }}>
+                <CardActionArea>
+
                     <CardMedia
                         component="img"
                         height="280"
                         image={imageUrl}
                         alt="green iguana"
-                    /> </Link>
-                <CardContent>
-                    <Typography gutterBottom variant="h8" component="div" color="white">
-                        {props.props.title_english || _title}
-                    </Typography>
-                    <Typography variant="body2" color="white">
-                        <span>Episodes: </span>{props.props.episodes || "airing"}<br></br><br></br>
-                        <span>Status: </span>{props.props.airing ? "airing" : "Completed"}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card >
-
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h8" component="div" color="white">
+                            {props.props.title_english || _title}
+                        </Typography>
+                        <Typography variant="body2" color="white">
+                            <span>Episodes: </span>{props.props.episodes || "airing"}<br></br><br></br>
+                            <span>Status: </span>{props.props.airing ? "airing" : "Completed"}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card >
+        </Link>
     );
 };
 

@@ -1,13 +1,13 @@
 
 const getAnimeByName = async (searchTerm) => {
     return await fetch(
-        `https://api.jikan.moe/v3/search/anime?q=${searchTerm}&limit=20`
+        `https://api.jikan.moe/v3/search/anime?q=${searchTerm}&limit=16`
     ).then((res) => res.json())
 }
 
 const getTopAnimes = async () => {
     const res = await fetch(
-        `https://api.jikan.moe/v4/top/anime?limit=12`
+        `https://api.jikan.moe/v4/top/anime?limit=16`
     );
     return await res.json();
 }

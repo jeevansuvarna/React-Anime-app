@@ -34,7 +34,7 @@ function App() {
             </Route>
             <Route path="/result/:id" element={<SinglePage />}>
             </Route>
-            <Route path="/results" element={<Search />}>
+            <Route path="/results/:id" element={<Search />}>
             </Route>
           </Routes>
         </main>

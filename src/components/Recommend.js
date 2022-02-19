@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { getPopularAnimes, getRecentAnime } from '../Api/apiService';
 import "../css/Recommend.css"
-
+import { Link } from 'react-router-dom';
 
 
 export default function Recommand() {
@@ -32,30 +32,48 @@ export default function Recommand() {
     return (
 
         // <div style={{ flexDirection: "column", display: "flex", float: "left", left: 0 }}>
-        <Card style={{ width: "20%", height: "auto", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5, minWidth: 40 }}>
+
+        <Card style={{ width: "18%", height: "auto", backgroundColor: "#21325E", borderRadius: 5, marginLeft: 5, }}>
             <CardContent>
                 <Typography className="TopList" sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
-                    <span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Popular Animes</span><br></br><br></br>
+                    <b style={{ textAlign: "center", justifyContent: "center" }}>
+                        <span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Popular Animes</span></b><br></br><br></br>
                     {
                         popular.map(function (item, i) {
                             const _title =
                                 item.entry.title.length > 20
                                     ? `${item.entry.title.substring(0, 15)}...`
                                     : item.entry.title;
+
                             return (<>
-                                <a key={item.entry.mal_id} style={{ lineHeight: 3 }}>{_title}</a><br></br>
+                                <li key={item.entry.mal_id} style={{ lineHeight: 3, color: "white" }}><Link
+                                    to={{
+                                        pathname: `/result/${item.entry.mal_id}`,
+                                    }} style={{ color: "white", textDecoration: "white" }}
+                                >{_title}</Link></li>
                             </>
                             );
+
+
                         })
-                    }<br></br><span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Recent</span><br></br><br></br>
+                    }<br></br>
+                    <b style={{ textAlign: "center", justifyContent: "center" }}>
+                        <span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Recent Animes</span></b><br></br><br></br>
                     {
                         Recent.map(function (item, i) {
                             const _title =
                                 item.entry.title.length > 20
                                     ? `${item.entry.title.substring(0, 15)}...`
                                     : item.entry.title;
+
                             return (<>
-                                <a key={item.entry.mal_id} style={{ lineHeight: 3 }}>{_title}</a><br></br>
+
+                                <li key={item.entry.mal_id} style={{ lineHeight: 3, color: "white" }}>  <Link
+                                    to={{
+                                        pathname: `/result/${item.entry.mal_id}`,
+                                    }} style={{ color: "white", textDecoration: "white" }}
+                                >{_title}</Link></li>
+
                             </>
                             );
                         })

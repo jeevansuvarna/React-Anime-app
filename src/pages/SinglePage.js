@@ -18,7 +18,7 @@ export const SinglePage = (props) => {
             setAnime(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [params])
 
     if (anime) {
         // eslint-disable-next-line array-callback-return
@@ -44,7 +44,7 @@ export const SinglePage = (props) => {
                     <Card style={{ backgroundColor: "#21325E", display: "inline-block", borderRadius: 5, float: "right", marginLeft: 20, width: "50%", height: "100%" }}>
                         <CardContent>
                             <Typography sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
-                                <center style={{ backgroundColor: "#519259", paddingTop: 20, borderRadius: 5 }}> <span className="title" style={{ backgroundColor: "#519259", }}>{anime.title_english}</span><br></br>
+                                <center style={{ backgroundColor: "#519259", paddingTop: 20, borderRadius: 5 }}> <span className="title" style={{ backgroundColor: "#519259", }}>{anime.title_english || anime.title}</span><br></br>
                                     <br></br> </center><br></br>
                                 <div className='Description'>
                                     <span>Duration: </span><span>{anime.duration}</span><br></br>
@@ -58,7 +58,8 @@ export const SinglePage = (props) => {
                         </CardContent>
                     </Card >
                 </div>
-                <Youtube props={anime} />
+                <div><Youtube props={anime} /></div>
+
             </div>
         </div >
     }

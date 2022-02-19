@@ -1,6 +1,8 @@
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getAnimeByName } from '../Api/apiService';
 import AnimeList from '../components/AnimeList';
 import Recommand from '../components/Recommend';
 import { searchContext } from '../context/search';
@@ -10,24 +12,30 @@ export const Search = () => {
 
     const [dataExists, setDataExists] = useState(true);
     const search = useContext(searchContext);
+    const params = useParams();
     let content = "";
-    console.log(JSON.parse(localStorage.getItem('myData')))
+
     useEffect(() => {
+
+        getAnimeByName(params.id).then((data) => {
+            search.setSearch(data.results)
+            localStorage.setItem('myData', JSON.stringify(data.results));
+        });
+
         if (
             search.searchData === undefined ||
             Object.keys(search.searchData).length === 0
         ) {
             try {
-                search.setSearchData(JSON.parse(localStorage.getItem('myData')));
+                search.setSearch(JSON.parse(localStorage.getItem('myData')));
                 setDataExists(true);
             } catch (error) {
                 console.log(error);
                 setDataExists(false);
             }
         }
-    }, [search]);
+    }, [search, params.id]);
 
-    console.log(dataExists)
     if (dataExists) {
         content = <div style={{ marginTop: 100, display: "flex", flexDirection: "row" }} >
             <Recommand />
