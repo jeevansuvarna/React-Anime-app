@@ -8,12 +8,16 @@ const AnimeList = (props) => {
     let mapData = {};
 
     if (Object.keys(props.props).length === 0) {
-        mapData = JSON.parse(localStorage.getItem('myData'));
+        try {
+            mapData = JSON.parse(localStorage.getItem('myData'));
+        }
+        catch (e) {
+            alert("Server Down")
+        }
     }
     else
         mapData = props.props
 
-    console.log(props.props)
     return (
         <>
             {
