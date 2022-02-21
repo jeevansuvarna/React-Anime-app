@@ -19,7 +19,7 @@ const AnimeList = (props) => {
     else
         mapData = props.props
 
-    console.log(mapData)
+
     return (
         <>
             {
