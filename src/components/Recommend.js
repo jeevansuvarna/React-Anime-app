@@ -37,7 +37,7 @@ export default function Recommand() {
             <CardContent>
                 <Typography className="TopList" sx={{ fontFamily: "Arial-BoldMT" }} color="white" gutterBottom>
                     <b style={{ textAlign: "center", justifyContent: "center" }}>
-                        <span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Popular Animes</span></b><br></br><br></br>
+                        <span className="TopTitle" style={{ padding: 13, color: "green" }}>Popular Animes</span></b><br></br><br></br>
                     {
                         popular.map(function (item, i) {
                             const _title =
@@ -46,7 +46,7 @@ export default function Recommand() {
                                     : item.entry.title;
 
                             return (<>
-                                <li key={item.entry.mal_id} style={{ lineHeight: 3, color: "white" }}><Link
+                                <li key={i} style={{ lineHeight: 3, color: "white" }}><Link
                                     to={{
                                         pathname: `/result/${item.entry.mal_id}`,
                                     }} style={{ color: "white", textDecoration: "white" }}
@@ -58,7 +58,7 @@ export default function Recommand() {
                         })
                     }<br></br>
                     <b style={{ textAlign: "center", justifyContent: "center" }}>
-                        <span clasName="TopTitle" style={{ padding: 13, color: "green" }}>Recent Animes</span></b><br></br><br></br>
+                        <span className="TopTitle" style={{ padding: 13, color: "green" }}>Recent Animes</span></b><br></br><br></br>
                     {
                         Recent.map(function (item, i) {
                             const _title =
@@ -68,7 +68,7 @@ export default function Recommand() {
 
                             return (<>
 
-                                <li key={item.entry.mal_id} style={{ lineHeight: 3, color: "white" }}>  <Link
+                                <li key={i} style={{ lineHeight: 3, color: "white" }}>  <Link
                                     to={{
                                         pathname: `/result/${item.entry.mal_id}`,
                                     }} style={{ color: "white", textDecoration: "white" }}

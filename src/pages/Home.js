@@ -20,6 +20,7 @@ export const Home = () => {
     }, [])
 
     if (search.animeData) {
+
         content = <div style={{ marginTop: 100, display: "flex", flexDirection: "row" }} >
             <Recommand />
             <Box sx={{ float: "left", marginLeft: 1, width: "100%" }}>

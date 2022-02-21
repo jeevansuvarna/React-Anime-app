@@ -5,19 +5,21 @@ import { Grid } from '@mui/material';
 
 
 const AnimeList = (props) => {
+
     let mapData = {};
 
     if (Object.keys(props.props).length === 0) {
-        try {
-            mapData = JSON.parse(localStorage.getItem('myData'));
-        }
-        catch (e) {
-            alert("Server Down")
-        }
+        // try {
+        mapData = JSON.parse(localStorage.getItem('myData'));
+        // }
+        // catch (e) {
+        //     alert("Server Down")
+        // }
     }
     else
         mapData = props.props
 
+    console.log(mapData)
     return (
         <>
             {

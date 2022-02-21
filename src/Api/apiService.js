@@ -9,6 +9,7 @@ const getTopAnimes = async () => {
     const res = await fetch(
         `https://api.jikan.moe/v4/top/anime?limit=16`
     );
+
     return await res.json();
 }
 const getPopularAnimes = async () => {

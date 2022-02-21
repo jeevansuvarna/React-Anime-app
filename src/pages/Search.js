@@ -37,6 +37,7 @@ export const Search = () => {
     }, [search, params.id]);
 
     if (dataExists) {
+
         content = <div style={{ marginTop: 100, display: "flex", flexDirection: "row" }} >
             <Recommand />
             <Box sx={{ float: "left", marginLeft: 1, width: "100%" }}>
