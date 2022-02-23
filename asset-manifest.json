@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-Anime-app/static/css/main.0f34feb4.css",
+    "main.js": "/React-Anime-app/static/js/main.e46f548a.js",
+    "static/js/787.fd1277c1.chunk.js": "/React-Anime-app/static/js/787.fd1277c1.chunk.js",
+    "index.html": "/React-Anime-app/index.html",
+    "main.0f34feb4.css.map": "/React-Anime-app/static/css/main.0f34feb4.css.map",
+    "main.e46f548a.js.map": "/React-Anime-app/static/js/main.e46f548a.js.map",
+    "787.fd1277c1.chunk.js.map": "/React-Anime-app/static/js/787.fd1277c1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f34feb4.css",
+    "static/js/main.e46f548a.js"
+  ]
+}
